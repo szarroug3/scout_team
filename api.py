@@ -8,7 +8,7 @@ OPENDOTA_BASE_URL = 'https://api.opendota.com/api/{func_name}/{params}'
 
 
 def dota_api_call(func_name, api_key, **params):
-    resp = requests.get(DOTA_BASE_URL.format(func_name=func_name, params=urlencode(params)))
+    resp = requests.get(DOTA_BASE_URL.format(func_name=func_name, api_key=api_key, params=urlencode(params)))
 
     if not resp.ok:
         raise Exception('Something went wrong: GET {}: {} {}'.format(func_name, resp.status_code, resp.reason))

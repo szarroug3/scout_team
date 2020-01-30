@@ -24,30 +24,23 @@ if __name__ == '__main__':
     file = args.file if args.file else '{}.xlsx'.format(current_time)
     player_names = {}
     players = {}
-    print(0)
     heroes = get_heroes()
 
-    try:
-        print(1)
+    if True:
+    # try:
         writer = XlsxWriter(file)
-        print(2)
         for team_id in args.team_id:
-            print(3)
             team = Team(team_id, player_names, heroes, args.league_id, args.api_key)
             players.update(team.players)
             writer.write_matches(team)
             writer.write_summary(team)
         writer.write_legend()
 
-        print(4)
         for player in args.player:
-            print(5)
             if player not in players:
                 players[player] = Player(player, player_names, heroes)
 
-        print(6)
         writer.write_players(players.values())
         writer.close()
-        print(7)
-    except Exception as e:
-        print(e)
+    # except Exception as e:
+         #print(e)

@@ -1,7 +1,8 @@
 from collections import defaultdict
+from time import sleep
 
 from match import ParsedMatch, UnparsedMatch
-from api import dota_api_call, opendota_api_call
+from api import dota_api_call, get_player_name, opendota_api_call
 
 
 class Player(object):

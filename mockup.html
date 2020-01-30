@@ -1,359 +1,348 @@
 <html>
-  <head>
-    <style type="text/css">
-      table {
-          width: 750px;
-          border-collapse: collapse;
-          margin:50px auto;
-      }
+    <head>
+        <style type="text/css">
+            table {
+                width: 750px;
+                border-collapse: collapse;
+                margin:50px auto;
+            }
 
-      th {
-          background: #3498db;
-          color: white;
-          font-weight: bold;
-      }
+            th {
+                background: #3498db;
+                color: white;
+                font-weight: bold;
+            }
 
-      td, th {
-          padding: 10px; 
-          border: 1px solid #ccc; 
-          text-align: left; 
-          font-size: 18px;
-      }
+            td, th {
+                padding: 10px; 
+                border: 1px solid #ccc; 
+                text-align: left; 
+                font-size: 18px;
+            }
 
-      .labels tr td {
-          background-color: #2cc16a;
-          font-weight: bold;
-          color: #fff;
-      }
-      
-      .label tr td label {
-          display: block;
-      }
-      
-      .borderless {
-          border: none;
-      }
-      
-      .one {
-          background-color: white;
-      }
-      
-      .two {
-          background-color: yellow;
-      }
-      
-      
-      [data-toggle="toggle"] {
-      	  display: none;
-      }
-    </style>
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $('[data-toggle="toggle"]').change(function(){
-              $(this).parents().next('.hide').toggle();
-          });
-      });
+            .borderless {
+                border: none;
+            }
 
-      $('.two').hover(
-          function(){
-              $('.two').css({"border": "solid"});
-          },function(){
-              $('.two').css({"border": ""});
-          });
-    </script>
-  </head>
-  <body>
-    <table width="100%">
-      <thead>
-        <tr>
-          <th colspan="5">Picks</th>
-          <th>Pick</th>
-	  <th>Result</th>
-	  <th>Side</th>
-	  <th>Captain</th>
-	  <th colspan="6">Banned Against</th>
-	  <th colspan="6">Bans</th>
-	  <th>Dotabuff</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tbody>
-          <tr>
-            <td>
-              <label for="game1">Vengeful Spirit S</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td class="two">
-              <label for="game1">Puck O (R)</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Doom O</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Riki S</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Storm Spirit M</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">FP</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">L</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Radiant</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Captain Gotard</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Axe</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Legion Commander</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Witch Doctor</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Timbersaw</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Viper</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Drow Ranger</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Outworld Devourer</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Underlord</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Templar Assassin</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Lifestealer</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1">Bloodseeker</label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1"></label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game1"><a href="http://www.dotabuff.com/matches/5206466619">Dotabuff</a></label>
-              <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
-            </td>
-          </tr>
-        </tbody>
-        <tbody class="hide">
-          <tr>
-            <td class="borderless"></td>
-            <td>Player1</td>
-            <td>Hero</td>
-            <td>Lane</td>
-            <td>Kills</td>
-            <td>Deaths</td>
-            <td>Assists</td>
-            <td>Last Hits</td>
-            <td>Denies</td>
-            <td>GPM</td>
-            <td>XPM</td>
-            <td>Obs</td>
-            <td>Sentries</td>
-          </tr>
-          <tr>
-            <td class="borderless"></td>
-            <td>Sacred</td>
-            <td class="two">Puck</td>
-            <td>Safe</td>
-            <td>3</td>
-            <td>4</td>
-            <td>9</td>
-            <td>400</td>
-            <td>17</td>
-            <td>560</td>
-            <td>480</td>
-            <td>2</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td class="borderless"></td>
-            <td>Cerys</td>
-            <td>Vengeful Spirit</td>
-            <td>Safe</td>
-            <td>1</td>
-            <td>10</td>
-            <td>6</td>
-            <td>210</td>
-            <td>4</td>
-            <td>300</td>
-            <td>400</td>
-            <td>10</td>
-            <td>7</td>
-          </tr>
-        </tbody>
-        <tbody class="labels">
-          <tr>
-            <td>
-              <label for="game2">Vengeful Spirit S</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Puck O (R)</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Doom O</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Riki S</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Storm Spirit M</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">FP</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">L</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Radiant</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Captain Gotard</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Axe</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Legion Commander</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Witch Doctor</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Timbersaw</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Viper</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Drow Ranger</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Outworld Devourer</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Underlord</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Templar Assassin</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Lifestealer</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2">Bloodseeker</label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2"></label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-            <td>
-              <label for="game2"><a href="http://www.dotabuff.com/matches/5206466619">Dotabuff</a></label>
-              <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
-            </td>
-          </tr>
-        </tbody>
-        <tbody class="hide">
-          <tr>
-            <td class="borderless"></td>
-            <td>Player1</td>
-            <td>Hero</td>
-            <td>Lane</td>
-            <td>Kills</td>
-            <td>Deaths</td>
-            <td>Assists</td>
-            <td>Last Hits</td>
-            <td>Denies</td>
-            <td>GPM</td>
-            <td>XPM</td>
-            <td>Obs</td>
-            <td>Sentries</td>
-          </tr>
-          <tr>
-            <td class="borderless"></td>
-            <td>Sacred</td>
-            <td>Puck</td>
-            <td>Safe</td>
-            <td>3</td>
-            <td>4</td>
-            <td>9</td>
-            <td>400</td>
-            <td>17</td>
-            <td>560</td>
-            <td>480</td>
-            <td>2</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td class="borderless"></td>
-            <td>Cerys</td>
-            <td>Vengeful Spirit</td>
-            <td>Safe</td>
-            <td>1</td>
-            <td>10</td>
-            <td>6</td>
-            <td>210</td>
-            <td>4</td>
-            <td>300</td>
-            <td>400</td>
-            <td>10</td>
-            <td>7</td>
-          </tr>
-        </tbody>
-      </tbody>
-    </table>
+            .puck {
+                background-color: yellow;
+            }
+
+            [data-toggle="toggle"] {
+                  display: none;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('[data-toggle="toggle"]').change(function(){
+                    $(this).parents().next('.hide').toggle();
+                });
+            });
+
+            $(document).ready(function(){
+                $('.hoverable').hover(function() {
+                    var val = "." + this.id;
+                    $(val).css({"border": "solid"});
+                },function(){
+                    var val = "." + this.id;
+                    $(val).css({"border": ""});
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <table width="100%">
+            <head>
+                <tr>
+                    <th colspan="5">Picks</th>
+                    <th>Pick</th>
+                    <th>Result</th>
+                    <th>Side</th>
+                    <th>Captain</th>
+                    <th colspan="6">Banned Against</th>
+                    <th colspan="6">Bans</th>
+                    <th>Dotabuff</th>
+                </tr>
+            </head>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="game1">Vengeful Spirit S</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td id="puck" class="hoverable puck">
+                        <label for="game1">Puck O (R)</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Doom O</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Riki S</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Storm Spirit M</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">FP</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">L</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Radiant</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Captain Gotard</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Axe</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Legion Commander</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Witch Doctor</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Timbersaw</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Viper</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Drow Ranger</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Outworld Devourer</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Underlord</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Templar Assassin</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Lifestealer</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1">Bloodseeker</label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1"></label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game1"><a href="http://www.dotabuff.com/matches/5206466619">Dotabuff</a></label>
+                        <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="hide">
+                <tr>
+                    <td class="borderless"></td>
+                    <td>Player</td>
+                    <td>Hero</td>
+                    <td>Lane</td>
+                    <td>Kills</td>
+                    <td>Deaths</td>
+                    <td>Assists</td>
+                    <td>Last Hits</td>
+                    <td>Denies</td>
+                    <td>GPM</td>
+                    <td>XPM</td>
+                    <td>Obs</td>
+                    <td>Sentries</td>
+                </tr>
+                <tr>
+                    <td class="borderless"></td>
+                    <td>Sacred</td>
+                    <td>Puck</td>
+                    <td>Safe</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>9</td>
+                    <td>400</td>
+                    <td>17</td>
+                    <td>560</td>
+                    <td>480</td>
+                    <td>2</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="borderless"></td>
+                    <td>Cerys</td>
+                    <td>Vengeful Spirit</td>
+                    <td>Safe</td>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>6</td>
+                    <td>210</td>
+                    <td>4</td>
+                    <td>300</td>
+                    <td>400</td>
+                    <td>10</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="game2">Vengeful Spirit S</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td id="puck" class="hoverable puck">
+                        <label for="game2">Puck O (R)</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Doom O</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Riki S</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Storm Spirit M</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">FP</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">L</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Radiant</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Captain Gotard</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Axe</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Legion Commander</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Witch Doctor</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Timbersaw</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Viper</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Drow Ranger</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Outworld Devourer</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Underlord</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Templar Assassin</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Lifestealer</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2">Bloodseeker</label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2"></label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                    <td>
+                        <label for="game2"><a href="http://www.dotabuff.com/matches/5206466619">Dotabuff</a></label>
+                        <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="hide">
+                <tr>
+                    <td class="borderless"></td>
+                    <td>Player</td>
+                    <td>Hero</td>
+                    <td>Lane</td>
+                    <td>Kills</td>
+                    <td>Deaths</td>
+                    <td>Assists</td>
+                    <td>Last Hits</td>
+                    <td>Denies</td>
+                    <td>GPM</td>
+                    <td>XPM</td>
+                    <td>Obs</td>
+                    <td>Sentries</td>
+                </tr>
+                <tr>
+                    <td class="borderless"></td>
+                    <td>Sacred</td>
+                    <td>Puck</td>
+                    <td>Safe</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>9</td>
+                    <td>400</td>
+                    <td>17</td>
+                    <td>560</td>
+                    <td>480</td>
+                    <td>2</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="borderless"></td>
+                    <td>Cerys</td>
+                    <td>Vengeful Spirit</td>
+                    <td>Safe</td>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>6</td>
+                    <td>210</td>
+                    <td>4</td>
+                    <td>300</td>
+                    <td>400</td>
+                    <td>10</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
