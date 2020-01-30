@@ -1,4 +1,7 @@
+import json
+import re
 import requests
+import os
 
 from urllib.parse import urlencode
 
@@ -6,24 +9,55 @@ from urllib.parse import urlencode
 DOTA_BASE_URL = 'https://api.steampowered.com/{type}_570/{func_name}/v1/?key={api_key}&{params}'
 OPENDOTA_BASE_URL = 'https://api.opendota.com/api/{func_name}/{params}'
 
+DEV = True
+if DEV:
+    if not os.path.exists('cache'):
+        os.makedirs('cache')
+
 
 def dota_api_call(func_name, api_key, type='IDOTA2Match', **params):
-    print(func_name)
-    resp = requests.get(DOTA_BASE_URL.format(type=type, func_name=func_name, api_key=api_key, params=urlencode(params)))
+    print(func_name, params)
+    encoded_params = urlencode(params)
+
+    if DEV:
+        params_filename = re.sub('[^0-9a-zA-Z]+', '_', encoded_params)
+        cache_file = os.path.join('cache', '{}_{}.json'.format(func_name, params_filename))
+        if os.path.exists(cache_file):
+            with open(cache_file) as f:
+                return json.load(f)
+
+    resp = requests.get(DOTA_BASE_URL.format(type=type, func_name=func_name, api_key=api_key, params=encoded_params))
 
     if not resp.ok:
         raise Exception('Something went wrong: GET {}: {} {}'.format(func_name, resp.status_code, resp.reason))
-    return resp.json().get('result', {})
+
+    result = resp.json().get('result', {})
+    if DEV:
+        with open(cache_file, 'w') as f:
+            json.dump(result, f, indent=4)
+
+    return result
 
 
 def opendota_api_call(func_name, *params):
-    print(func_name)
+    print(func_name, params)
+    if DEV:
+        cache_file = os.path.join('cache', '{}_{}.json'.format(func_name, '_'.join(params)))
+        if os.path.exists(cache_file):
+            with open(cache_file) as f:
+                return json.load(f)
+
     resp = requests.get(OPENDOTA_BASE_URL.format(func_name=func_name, params='/'.join(params)))
 
     if not resp.ok:
         raise Exception('Something went wrong: GET {}: {} {}'.format(func_name, resp.status_code, resp.reason))
 
-    return resp.json()
+    result = resp.json()
+    if DEV:
+        with open(cache_file, 'w') as f:
+            json.dump(result, f, indent=4)
+
+    return result
 
 
 def get_heroes(api_key):

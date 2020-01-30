@@ -15,13 +15,13 @@ class Match(object):
 
     def get_side(self, team_id, dire_team_id):
         if dire_team_id == team_id:
-            return 'dire'
-        return 'radiant'
+            return 'Dire'
+        return 'Radiant'
 
     def get_win(self, radiant_win):
-        if self.side == 'radiant' and radiant_win:
+        if self.side == 'Radiant' and radiant_win:
             return True
-        if self.side == 'dire' and not radiant_win:
+        if self.side == 'Dire' and not radiant_win:
             return True
         return False
 
@@ -29,10 +29,10 @@ class Match(object):
 class ParsedMatch(Match):
     def __init__(self, data, team_id, players, heroes, api_key):
         Match.__init__(self, data, team_id, players)
-        self.team_side_number = 0 if self.side == 'radiant' else 1
+        self.team_side_number = 0 if self.side == 'Radiant' else 1
         self.first_pick = None
         self.bans = {}
-        self.banned_against = {}
+        self.enemy_bans = {}
         self.enemy_captain = get_enemy_captain(self.match_id, self.side, players, api_key)
         self.get_picks_bans(heroes)
         self.get_player_info()
@@ -55,7 +55,7 @@ class ParsedMatch(Match):
                 if picks_bans['team'] == self.team_side_number:
                     self.bans[hero_id] = {'name': hero_name, 'order': picks_bans['order']}
                 else:
-                    self.banned_against[hero_id] = {'name': hero_name, 'order': picks_bans['order']}
+                    self.enemy_bans[hero_id] = {'name': hero_name, 'order': picks_bans['order']}
 
     def get_player_info(self):
         for player in self.data['players']:

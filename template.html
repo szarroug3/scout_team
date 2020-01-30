@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <style type="text/css">
+            table {
+                border-collapse: collapse;
+                margin:50px auto;
+                width: 100%;
+            }
+
+            th {
+                background: #3498db;
+                color: white;
+                font-weight: bold;
+            }
+
+            td, th {
+                padding: 10px; 
+                border: 1px solid #ccc; 
+                text-align: left; 
+                font-size: 16px;
+            }
+
+            .borderless {
+                border: none;
+            }
+
+            .two {
+                background: yellow;
+            }
+
+            .three {
+                background: orange;
+            }
+
+            .four {
+                background: cyan;
+            }
+
+            .five {
+                background: silver;
+            }
+
+            .six {
+                background: #FF7F50;
+            }
+
+            .seven {
+                background: #FFD700;
+            }
+
+            .eight {
+                background: #ADFF2F;
+            }
+
+            .nine {
+                background: #40E0D0;
+            }
+
+            .ten {
+                background: #00BFFF;
+            }
+
+            .eleven {
+                background: #D8BFD8;
+            }
+
+            .twelve {
+                background: #FFC0CB;
+            }
+
+            .thirteen {
+                background: #FAEBD7;
+            }
+
+            .fourteen {
+                background: #E6E6FA;
+            }
+
+            .fifteen {
+                background: #FFD700;
+            }
+
+            [data-toggle="toggle"] {
+                  display: none;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('[data-toggle="toggle"]').change(function(){
+                    $(this).parents().next('.hide').toggle();
+                });
+            });
+
+            $(document).ready(function(){
+                $('td').hover(function() {
+                    var val = "." + this.id;
+                    $(val).css({"border": "solid 1px"});
+                },function(){
+                    var val = "." + this.id;
+                    $(val).css({"border": ""});
+                });
+            });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

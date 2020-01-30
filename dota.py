@@ -52,7 +52,7 @@ class Team(object):
         self.unparsed_matches = []
         self.pick_count = defaultdict(lambda: defaultdict(int))
         self.ban_count = defaultdict(int)
-        self.banned_against_count = defaultdict(int)
+        self.enemy_ban_count = defaultdict(int)
         self.players = {}
 
         self.get_team_data()
@@ -108,8 +108,8 @@ class Team(object):
                     self.pick_count[hero['name']]['count'] += 1
                     if match_details.win:
                         self.pick_count[hero['name']]['wins'] += 1
-                for hero in match_details.banned_against.values():
-                    self.banned_against_count[hero['name']] += 1
+                for hero in match_details.enemy_bans.values():
+                    self.enemy_ban_count[hero['name']] += 1
                 for hero in match_details.bans.values():
                     self.ban_count[hero['name']] += 1
                 self.parsed_matches.append(match_details)

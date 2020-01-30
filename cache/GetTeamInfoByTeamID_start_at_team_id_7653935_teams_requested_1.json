@@ -1,0 +1,17 @@
+{
+    "status": 1,
+    "teams": [
+        {
+            "name": "madmax",
+            "tag": "",
+            "time_created": 1579658545,
+            "logo": 8462954340190809460,
+            "logo_sponsor": 7089351136217228393,
+            "country_code": "",
+            "url": "",
+            "games_played": 0,
+            "player_0_account_id": 66714584,
+            "admin_account_id": 66714584
+        }
+    ]
+}
