@@ -3,12 +3,13 @@ import requests
 from urllib.parse import urlencode
 
 
-DOTA_BASE_URL = 'https://api.steampowered.com/IDOTA2Match_570/{func_name}/V1/?key={api_key}&{params}'
+DOTA_BASE_URL = 'https://api.steampowered.com/{type}_570/{func_name}/v1/?key={api_key}&{params}'
 OPENDOTA_BASE_URL = 'https://api.opendota.com/api/{func_name}/{params}'
 
 
-def dota_api_call(func_name, api_key, **params):
-    resp = requests.get(DOTA_BASE_URL.format(func_name=func_name, api_key=api_key, params=urlencode(params)))
+def dota_api_call(func_name, api_key, type='IDOTA2Match', **params):
+    print(func_name)
+    resp = requests.get(DOTA_BASE_URL.format(type=type, func_name=func_name, api_key=api_key, params=urlencode(params)))
 
     if not resp.ok:
         raise Exception('Something went wrong: GET {}: {} {}'.format(func_name, resp.status_code, resp.reason))
@@ -16,7 +17,7 @@ def dota_api_call(func_name, api_key, **params):
 
 
 def opendota_api_call(func_name, *params):
-    print(OPENDOTA_BASE_URL.format(func_name=func_name, params='/'.join(params)))
+    print(func_name)
     resp = requests.get(OPENDOTA_BASE_URL.format(func_name=func_name, params='/'.join(params)))
 
     if not resp.ok:
@@ -25,8 +26,8 @@ def opendota_api_call(func_name, *params):
     return resp.json()
 
 
-def get_heroes():
-    data = opendota_api_call('heroes')
+def get_heroes(api_key):
+    data = dota_api_call('GetHeroes', api_key, type='IEconDOTA2', language='english')['heroes']
     return {hero['id']: hero['localized_name'] for hero in data}
 
 
