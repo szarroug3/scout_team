@@ -133,3 +133,6 @@ cache/
 
 # Config file
 .config
+
+# Test files
+test/
