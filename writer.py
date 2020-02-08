@@ -69,7 +69,7 @@ class XlsxWriter(object):
 
         for column, enemy_ban in enumerate(sorted(match.enemy_bans.values(), key=lambda p: p['order']), start=9):
             color = self.colors.get(team.enemy_ban_count[enemy_ban['name']], self.colors[1])
-            self.used_colors.add(team.enemy_ban_count[ban['name']])
+            self.used_colors.add(team.enemy_ban_count[enemy_ban['name']])
             self.write_hero(column, color, **enemy_ban)
 
         for column, ban in enumerate(sorted(match.bans.values(), key=lambda p: p['order']), start=16):
@@ -167,7 +167,7 @@ class XlsxWriter(object):
             self.worksheet.write(self.row, column, count, color)
         self.row += 2
 
-    def write_players(self, players):
+    def write_players(self, players, highlight_heroes):
         self.worksheet.write(self.row, 0, 'PLAYERS')
         self.row += 1
 
@@ -181,9 +181,14 @@ class XlsxWriter(object):
             self.row += 1
 
             for hero in player.heroes:
-                self.worksheet.write(self.row, 0, hero['name'])
-                self.worksheet.write(self.row, 1, hero['games'])
-                self.worksheet.write(self.row, 2, hero['win_rate'])
+                if hero['name'].lower() in highlight_heroes:
+                    self.worksheet.write(self.row, 0, hero['name'], self.colors[2])
+                    self.worksheet.write(self.row, 1, hero['games'], self.colors[2])
+                    self.worksheet.write(self.row, 2, hero['win_rate'], self.colors[2])
+                else:
+                    self.worksheet.write(self.row, 0, hero['name'])
+                    self.worksheet.write(self.row, 1, hero['games'])
+                    self.worksheet.write(self.row, 2, hero['win_rate'])
                 self.row += 1
             self.row += 1
 
@@ -194,14 +199,16 @@ class XlsxWriter(object):
 
             for hero, data in sorted(player.recent_heroes.items(), key=lambda h: h[1]['count'], reverse=True):
                 win_rate = '{:.1f}%'.format(data['wins'] * 100 / data['count'])
-                self.worksheet.write(self.row, 0, hero)
-                self.worksheet.write(self.row, 1, data['count'])
-                self.worksheet.write(self.row, 2, win_rate)
+                if hero.lower() in highlight_heroes:
+                    self.worksheet.write(self.row, 0, hero, self.colors[2])
+                    self.worksheet.write(self.row, 1, data['count'], self.colors[2])
+                    self.worksheet.write(self.row, 2, win_rate, self.colors[2])
+                else:
+                    self.worksheet.write(self.row, 0, hero)
+                    self.worksheet.write(self.row, 1, data['count'])
+                    self.worksheet.write(self.row, 2, win_rate)
                 self.row += 1
             self.row += 1
-
-
-
         self.row += 1
 
 
@@ -325,5 +332,5 @@ class HtmlWriter(object):
     def write_legend(self):
         pass
 
-    def write_players(self, players):
+    def write_players(self, players, highlight_heroes):
         pass

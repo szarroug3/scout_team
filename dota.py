@@ -69,7 +69,6 @@ class Team(object):
                 continue
             value = str(value)
             self.players[value] = Player(value, self.player_names, self.heroes)
-            break
             sleep(.5)
 
     def get_team_matches(self, league_id):
@@ -81,8 +80,6 @@ class Team(object):
                 matches_min = None
 
             new_matches = self.get_matches(matches, league_id=league_id, start_at_match_id=matches_min)
-            # TODO: remove this
-            return new_matches
             if len(matches) == len(new_matches):
                 return matches
             matches = new_matches

@@ -67,7 +67,7 @@ def get_heroes(api_key):
 
 def get_enemy_captain(match_id, side, player_names, api_key):
     data = dota_api_call('GetMatchDetails', api_key, match_id=match_id)
-    captain_id = data.get('dire_captain') if side == 'radiant' else data.get('radiant_captain')
+    captain_id = data.get('dire_captain') if side == 'Radiant' else data.get('radiant_captain')
     if captain_id:
         return get_player_name(captain_id, player_names)
     return ''

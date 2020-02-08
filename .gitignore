@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Caching files
+cache/
+
+# Config file
+.config
