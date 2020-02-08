@@ -31,9 +31,9 @@ class Player(object):
             hero_id = match['hero_id']
             name = heroes[hero_id]
             hero_data[name]['count'] += 1
-            if match['player_slot'] < 100 and not match['radiant_win']:
+            if match['player_slot'] > 100 and not match['radiant_win']:
                 hero_data[name]['wins'] += 1
-            if match['player_slot'] > 100 and match['radiant_win']:
+            if match['player_slot'] < 100 and match['radiant_win']:
                 hero_data[name]['wins'] += 1
         return hero_data
 
@@ -101,7 +101,11 @@ class Team(object):
 
     def parse_matches(self, matches):
         for match in sorted(matches, reverse=True):
-            data = opendota_api_call('matches', str(match))
+            try:
+                data = opendota_api_call('matches', str(match))
+            except:
+                print('match {} could not be found using dotabuff api'.format(match))
+
             if data.get('picks_bans'):
                 match_details = ParsedMatch(data, self.team_id, self.player_names, self.heroes, self.api_key)
                 for hero in match_details.picks.values():
