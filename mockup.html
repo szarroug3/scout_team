@@ -19,13 +19,35 @@
                 font-size: 16px;
             }
 
-            .borderless {
-                border: none;
-            }
+            .borderless { border: none; }
 
-            .puck {
-                background-color: yellow;
-            }
+            .two { background: yellow; }
+
+            .three { background: orange; }
+
+            .four { background: cyan; }
+
+            .five { background: silver; }
+
+            .six { background: #FF7F50; }
+
+            .seven { background: #FFD700; }
+
+            .eight { background: #ADFF2F; }
+
+            .nine { background: #40E0D0; }
+
+            .ten { background: #00BFFF; }
+
+            .eleven { background: #D8BFD8; }
+
+            .twelve { background: #FFC0CB; }
+
+            .thirteen { background: #FAEBD7; }
+
+            .fourteen { background: #E6E6FA; }
+
+            .fifteen { background: #FFD700; }
 
             [data-toggle="toggle"] {
                   display: none;
@@ -40,7 +62,7 @@
             });
 
             $(document).ready(function(){
-                $('.hoverable').hover(function() {
+                $('td').hover(function() {
                     var val = "." + this.id;
                     $(val).css({"border": "solid 1px"});
                 },function(){
@@ -70,7 +92,7 @@
                         <label for="game1">Vengeful Spirit S</label>
                         <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
                     </td>
-                    <td id="puck" class="hoverable puck">
+                    <td id="Puck" class="Puck two">
                         <label for="game1">Puck O (R)</label>
                         <input type="checkbox" name="game1" id="game1" data-toggle="toggle">
                     </td>
@@ -209,7 +231,7 @@
                         <label for="game2">Vengeful Spirit S</label>
                         <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
                     </td>
-                    <td id="puck" class="hoverable puck">
+                    <td id="Puck" class="Puck two">
                         <label for="game2">Puck O (R)</label>
                         <input type="checkbox" name="game2" id="game2" data-toggle="toggle">
                     </td>

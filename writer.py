@@ -240,9 +240,9 @@ class HtmlWriter(object):
                 tr = etree.SubElement(tbody, 'tr')
                 self.write_parsed_match(tr, match, team)
 
-                tbody = etree.SubElement(table, 'tbody')
+                tbody = etree.SubElement(table, 'tbody', style='display: none;')
+                tbody.set('class', 'hide')
                 tr = etree.SubElement(tbody, 'tr')
-                tr.set('class', 'hide')
                 self.write_hero_data_header(tr)
                 self.write_parsed_hero_data(tr, match, team)
 
